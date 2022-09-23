@@ -8,7 +8,7 @@ import connectDB from "./config/database.js";
 import path from "path";
 
 const app=express();
-dotenv.config();
+
 connectDB();
 app.use(express.json());
 const PORT=process.env.PORT||5000;
