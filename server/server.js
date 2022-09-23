@@ -6,6 +6,11 @@ import errorHandler from "./Middlewares/errorHandler.js";
 import colors from "colors";
 import connectDB from "./config/database.js";
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename=fileURLToPath(import.meta.url);
+const __dirname=path.dirname(__filename)
+
 
 const app=express();
 
@@ -16,6 +21,8 @@ const PORT=process.env.PORT||5000;
 app.use("/api/goals",router);
 app.use("/api/users",router2);
 app.use(errorHandler);
+
+console.log("Something");
 
 if(process.env.NODE_ENV="production"){
   app.use(express.static(path.join(__dirname,"../client/build")));
